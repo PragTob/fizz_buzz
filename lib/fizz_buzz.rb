@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
+# A simple FizzBuzz implementation
 module FizzBuzz
-
-  extend self
+  module_function
 
   def fizz_buzz(number)
     if (number % 3 == 0) & (number % 5 == 0)
