@@ -15,4 +15,10 @@ module FizzBuzz
       number
     end
   end
+
+  def run
+    1.upto(100) do |number|
+      puts fizz_buzz(number)
+    end
+  end
 end
