@@ -35,8 +35,16 @@ module FizzBuzz
     end
   end
 
-  def run(rules = DEFAULT_RULES)
-    1.upto(100) do |number|
+  DEFAULT_OPTS = {
+    range: 1..100,
+    rules: DEFAULT_RULES
+  }.freeze
+  def run(opts = {})
+    opts = DEFAULT_OPTS.merge(opts)
+    range = opts.fetch(:range)
+    rules = opts.fetch(:rules)
+
+    range.each do |number|
       puts fizz_buzz(number, rules)
     end
   end

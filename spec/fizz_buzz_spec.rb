@@ -216,7 +216,11 @@ RSpec.describe FizzBuzz do
     it "can take rules and even no rules which just results into 1 to 100" do
       one_to_hundred = 1.upto(100).to_a.join("\n")
       one_to_hundred_last_line_break = "#{one_to_hundred}\n"
-      expect { described_class.run([]) }.to output(one_to_hundred_last_line_break).to_stdout
+      expect { described_class.run(rules: []) }.to output(one_to_hundred_last_line_break).to_stdout
+    end
+
+    it "can have its range customized" do
+      expect { described_class.run(range: 3..6) }.to output("Fizz\n4\nBuzz\nFizz\n").to_stdout
     end
   end
 end
