@@ -23,6 +23,86 @@ RSpec.describe FizzBuzz do
         expect(described_class.fizz_buzz(input)).to eq output
       end
     end
+
+    context "with BazzFizz Rules it respects order" do
+      buzz_fizz_rules = [
+        FizzBuzz::Rule.new("Buzz", 5),
+        FizzBuzz::Rule.new("Fizz", 3)
+      ]
+
+      expected = {
+        1 => 1,
+        3 => "Fizz",
+        5 => "Buzz",
+        15 => "BuzzFizz"
+      }
+
+      expected.each do |input, output|
+        it "for #{input} expect #{output}" do
+          expect(described_class.fizz_buzz(input, buzz_fizz_rules)).to eq output
+        end
+      end
+    end
+
+    context "with Zazz into the equation" do
+      zazz_rules = [
+        FizzBuzz::Rule.new("Fizz", 3),
+        FizzBuzz::Rule.new("Buzz", 5),
+        FizzBuzz::Rule.new("Zazz", 7)
+      ]
+
+      expected = {
+        1 => 1,
+        3 => "Fizz",
+        5 => "Buzz",
+        7 => "Zazz",
+        15 => "FizzBuzz",
+        21 => "FizzZazz",
+        35 => "BuzzZazz",
+        105 => "FizzBuzzZazz"
+      }
+
+      expected.each do |input, output|
+        it "for #{input} expect #{output}" do
+          expect(described_class.fizz_buzz(input, zazz_rules)).to eq output
+        end
+      end
+    end
+
+    context "with no rules" do
+      expected = {
+        1 => 1,
+        3 => 3,
+        5 => 5,
+        15 => 15
+      }
+
+      expected.each do |input, output|
+        it "for #{input} expect #{output}" do
+          expect(described_class.fizz_buzz(input, [])).to eq output
+        end
+      end
+    end
+
+    context "when applying the same rule multiple times" do
+      double_fizz_rules = [
+        FizzBuzz::Rule.new("Fizz", 3),
+        FizzBuzz::Rule.new("Fizz", 3)
+      ]
+
+      expected = {
+        1 => 1,
+        3 => "FizzFizz",
+        5 => 5,
+        66 => "FizzFizz"
+      }
+
+      expected.each do |input, output|
+        it "for #{input} expect #{output}" do
+          expect(described_class.fizz_buzz(input, double_fizz_rules)).to eq output
+        end
+      end
+    end
   end
 
   describe ".run" do
@@ -131,6 +211,12 @@ RSpec.describe FizzBuzz do
 
     it "does a full run integration style" do
       expect { described_class.run }.to output(full_fizz_buzz).to_stdout
+    end
+
+    it "can take rules and even no rules which just results into 1 to 100" do
+      one_to_hundred = 1.upto(100).to_a.join("\n")
+      one_to_hundred_last_line_break = "#{one_to_hundred}\n"
+      expect { described_class.run([]) }.to output(one_to_hundred_last_line_break).to_stdout
     end
   end
 end
