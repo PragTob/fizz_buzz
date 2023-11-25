@@ -8,7 +8,7 @@ A solution to [FizzBuzz](https://wiki.c2.com/?FizzBuzzTest) in multiple steps wi
 
 For used software versions see `.tool-versions`
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rspec spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run `rspec spec` to run the tests. Run `rubocop` for linting. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
 ## Decisions
 
