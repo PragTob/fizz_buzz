@@ -4,16 +4,24 @@
 module FizzBuzz
   module_function
 
+  FIZZ_NUMBER = 3
+  FIZZ_TEXT = "Fizz"
+
+  BUZZ_NUMBER = 5
+  BUZZ_TEXT = "Buzz"
+
+  FIZZ_BUZZ_TEXT = FIZZ_TEXT + BUZZ_TEXT
+
   def fizz_buzz(number)
-    fizz = divisible_by?(number, 3)
-    buzz = divisible_by?(number, 5)
+    fizz = divisible_by?(number, FIZZ_NUMBER)
+    buzz = divisible_by?(number, BUZZ_NUMBER)
 
     if fizz & buzz
-      "FizzBuzz"
+      FIZZ_BUZZ_TEXT
     elsif fizz
-      "Fizz"
+      FIZZ_TEXT
     elsif buzz
-      "Buzz"
+      BUZZ_TEXT
     else
       number
     end
