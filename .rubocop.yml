@@ -14,5 +14,8 @@ Style/StringLiteralsInInterpolation:
 Style/NumericPredicate:
   Enabled: false
 
+Metrics/MethodLength:
+  Max: 20
+
 Layout/LineLength:
   Max: 120

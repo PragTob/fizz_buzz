@@ -5,11 +5,14 @@ module FizzBuzz
   module_function
 
   def fizz_buzz(number)
-    if (number % 3 == 0) & (number % 5 == 0)
+    fizz = divisible_by?(number, 3)
+    buzz = divisible_by?(number, 5)
+
+    if fizz & buzz
       "FizzBuzz"
-    elsif number % 3 == 0
+    elsif fizz
       "Fizz"
-    elsif number % 5 == 0
+    elsif buzz
       "Buzz"
     else
       number
@@ -20,5 +23,9 @@ module FizzBuzz
     1.upto(100) do |number|
       puts fizz_buzz(number)
     end
+  end
+
+  def divisible_by?(number, divisor)
+    number % divisor == 0
   end
 end
