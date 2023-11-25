@@ -1,4 +1,4 @@
-# FizzBuzz
+# FizzBuzz [![Ruby](https://github.com/PragTob/fizz_buzz/actions/workflows/main.yml/badge.svg)](https://github.com/PragTob/fizz_buzz/actions/workflows/main.yml)
 
 A solution to [FizzBuzz](https://wiki.c2.com/?FizzBuzzTest) in multiple steps with some extensions. For fun and profit.
 
