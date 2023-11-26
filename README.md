@@ -12,7 +12,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 
 ## Decisions
 
-This is not the default FizzBuzz implementation you should be aiming for. For that check out something like the `basic` tag.
+This is not the default FizzBuzz implementation you should be aiming for. For that check out something like the ]`basic` tag](https://github.com/PragTob/fizz_buzz/tree/basic).
 
 This solution is for when we have the following requirements/uncertainties:
 
